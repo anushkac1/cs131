@@ -1,0 +1,23 @@
+    1  git clone https://github.com/anushkac1/cs131.git
+    2  cd cs131
+    3  mkdir ws2
+    4  cd ws2
+    5  echo $HOME
+    6  id
+    7  ls /proc/ | grep -i mem
+    8  ls /proc/ | grep -i cpu
+    9  head -n 10 /proc/meminfo
+   10  head -n 10 /proc/cpuinfo
+   11  tail -n 10 /proc/cpuinfo
+   12  cat /proc/cpuinfo
+   13  cat /proc/cpuinfo | grep "processor"
+   14  cat /etc/os-release
+   15  echo "CPU Information" > ws2.txt
+   16  cat /proc/cpuinfo >> ws2.txt
+   17  echo "Memory Information" >> ws2.txt
+   18  cat /proc/meminfo >> ws2.txt
+   19  echo "OS Information" >> ws2.txt
+   20  cat /etc/os-release >> ws2.txt
+   21  vim ws2.txt
+   22  cat ws2.txt
+   23  history > cmds.log

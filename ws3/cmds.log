@@ -1,0 +1,24 @@
+   1  sudo apt update
+   2  sudo apt install python3-pip -y
+   3  pip3 install --user gdown
+   4  which gdown 
+   5  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+   6  source ~/.bashrc
+   7  which gdown
+   8  gdown 1fc3saVu2GtG3Rft3zI-VOOsZhaqcSyn3
+   9  mkdir -p ~/cs131/ws3
+   10 mv ~/2019-01-h1.csv ~/cs131/ws3/
+   11 cd ws3
+   12 ls ~/cs131/ws3/
+   13 grep "2019-01-02" 2019-01-h1.csv > jan2.csv
+   14 cut -d',' -f8 jan2.csv > jan2_PULocationID.txt
+   15 cat jan2_PULocationID.txt
+   15 sort -g jan2_PULocationID.txt | uniq -c | sort -nr > jan2_top.txt
+   16 head -3 jan2_top.txt > ws3.txt
+   17 grep "2019-01-10" 2019-01-h1.csv > jan10.csv
+   18 cut -d',' -f8 jan10.csv > jan10_PULocationID.txt
+   19 sort -g jan10_PULocationID.txt | uniq -c | sort -nr > jan10_top.txt
+   20 head -3 jan10_top.txt >> ws3.txt
+   21 vim ws3.txt
+   22 history>cmds.log
+   23 vim cmds.log

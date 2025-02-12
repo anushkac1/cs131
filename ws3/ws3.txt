@@ -1,0 +1,12 @@
+Task 1: Top 3 Locations Jan. 2nd
+  Occurences:  8605    Location ID:  161.0
+  Occurences:  8407    Location ID:  132.0
+  Occurences:  8163    Location ID:  186.0
+
+Task 2: Top 3 Locations Jan. 10th 
+  Occurences:  13738   Location ID:  237.0
+  Occurences:  13519   Location ID:  236.0
+  Occurences:  12997   Location ID:  161.0
+
+
+

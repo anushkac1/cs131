@@ -1,4 +1,17 @@
-2C) 
+Task 1)
+
+Trying l Alias: 
+total 12
+drwxrwxr-x 2 anushka_chokshi anushka_chokshi 4096 Feb 18 06:26 FARE
+-rw-rw-r-- 1 anushka_chokshi anushka_chokshi 1554 Feb 18 09:08 cmds.log
+-rw-rw-r-- 1 anushka_chokshi anushka_chokshi  298 Feb 18 09:18 a1.txt
+
+Trying w Alias: 
+ 4      29     219
+
+2A & 2B) No outputs - directory created & pair files saved 
+
+2C)
 Mean fare 264.0 - 264.0: 17.89
 Mean fare 239.0 - 238.0: 5.33
 
@@ -19,3 +32,5 @@ Top 10 Popular Dropoff Locations, 3+ Customers:
   85118 48.0
   84413 239.0
   83480 141.0
+
+

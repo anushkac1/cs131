@@ -1,0 +1,43 @@
+  Navigate & Make Directory:
+  1  cd cs131
+  2  mkdir a1
+
+  Task 1: Alias Written & Tested
+  1  nano ~/.bashrc
+  2  source ~/.bashrc
+  3  l
+  4  w
+
+  Task 2: 
+  
+  Getting Taxi Dataset to A1: 
+  1 gdown 1fc3saVu2GtG3Rft3zI-VOOsZhaqcSyn3
+  2 mv 2019-01-h1.csv a1/
+ 
+  2A) FARE Directory Under A1: 
+  1 cd a1
+  2 mkdir FARE
+ 
+  2B) Chosen Pairs Txt Files Saved Accurately in FARE Directory:  
+  1 head -1 2019-01-h1.csv
+  2 grep ',264.0,264.0,' 2019-01-h1.csv | cut -d',' -f11 > FARE/264.0-264.0.txt
+  3 grep ',239.0,238.0,' 2019-01-h1.csv | cut -d',' -f11 > FARE/239.0-238.0.txt
+
+  2C) Mean Fares for Pair Ranges Saved in a1.txt
+  1  sum_one=$(paste -sd+ FARE/264.0-264.0.txt | bc)
+  2  count_one=$(wc -l < FARE/264.0-264.0.txt)
+  3  mean_one=$(echo "scale=2; $sum_one / $count_one" | bc)
+  4  sum_two=$(paste -sd+ FARE/239.0-238.0.txt | bc)
+  5  count_two=$(wc -l < FARE/239.0-238.0.txt)
+  6  mean_two=$(echo "scale=2; $sum_two / $count_two" | bc)
+  7  echo "Mean fare 264.0 - 264.0: $mean_one" > a1.txt
+  8  echo "Mean fare 239.0 - 238.0: $mean_two" >> a1.txt
+
+  2D) Highest Total Amount ($) Paid 1/10/19:
+  1  echo "Highest $ Paid 01/10/19: $(grep '"2019-01-10' 2019-01-h1.csv | cut -d',' -f17 | sort -nr | head -1)" >> a1.txt
+  
+  2E) Rides With 3+ Customers - Top 10 Dropoff Locations:  
+  1  echo "Top 10 Popular Dropoff Locations, 3+ Customers:" >> a1.txt && grep -E ',3\.|,4\.|,5\.|,6\.|,7\.|,8\.|,9\.' 2019-01-h1.csv | cut -d',' -f9 | sort | uniq -c | sort -nr | head -10 >> a1.txt
+
+  Save Commands History In cmds.log:   
+  1 history > cmds.log

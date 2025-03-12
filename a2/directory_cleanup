@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Usage function to help user  
+usage() {
+  echo "Usage: $0 [OPTIONS] <DIRECTORY>"
+  echo "USAGE OPTIONS: These are the things you can do! "
+  echo "  -e             Condition to delete all empty files (e for empty)"
+  echo "  -o <DAYS>      Condition to delete all old files (default to 30 if no specified amount given)"
+  echo "  -s <SIZE>      Condition to delete all files larger than a certain size (default to 100M)"
+  echo "  -t <TYPE>      Condition to delete all files of a specific type (default txt)"
+  echo "  -a             Condition to delete ALL files in the directory"
+  echo "  -h             Condition to display the help message!"
+}
+
+# Different options , variables initialized 
+DELETE_EMPTY=0
+DELETE_OLD=0
+DELETE_SIZE=0
+DELETE_TYPE=0
+DELETE_ALL=0
+OLDER_THAN=0
+SIZE_LIMIT=""
+FILE_TYPE=""
+
+while getopts "eo:s:t:a h" option; do 
+  case "$option" in
+    e) DELETE_EMPTY=1 ;;  # Flag to delete empty files
+    o) DELETE_OLD=1; OLDER_THAN=$OPTARG ;;  #Age amount, provided by user 
+    s) DELETE_SIZE=1; SIZE_LIMIT=$OPTARG ;;  #Size amount, provided by user
+    t) DELETE_TYPE=1; FILE_TYPE=$OPTARG ;;  # Delete certain types 
+    a) DELETE_ALL=1 ;;   # Used to delete all files 
+    h) usage; exit 0 ;;  # Success, exit with code 0
+    *) usage; exit 1 ;;  # Error, exit with code 1
+  esac
+done
+
+shift $((OPTIND - 1))  #go through options
+
+#Make sure a directory is given or specific argument for file type, age, size needed
+if [ -z "$1" ]; then
+  echo "Uh-oh no directory provided or a specific argument is needed!"
+  usage
+  exit 1
+fi
+
+TARGET_DIR=$1
+
+#Directory provided, make sure it exists
+if [ ! -d "$TARGET_DIR" ]; then
+  echo "Uh-oh '$TARGET_DIR' does not exist!"
+  exit 1
+fi
+
+# Go to directory 
+cd "$TARGET_DIR" || exit
+
+#This option deletes all the empty files in the directory if selected
+if [ "$DELETE_EMPTY" -eq 1 ]; then 
+  echo "All files that are empty, are being deleted! "
+  find . -type f -empty -exec echo {} \; -exec rm -f {} \;
+fi
+
+#This option deletes files of certain age (older than a certain number of days)
+if [ "$DELETE_OLD" -eq 1 ]; then
+  echo "All files older than $OLDER_THAN days are being deleted!"
+  find . -type f -mtime +$OLDER_THAN -exec echo {} \; -exec rm -f {} \;
+fi
+
+#This option deletes files of certain sizes in the directory
+if [ "$DELETE_SIZE" -eq 1 ]; then
+  echo "All $SIZE_LIMIT sized files are being deleted!"
+  find . -type f -size +$SIZE_LIMIT -exec echo {} \; -exec rm -f {} \;
+fi
+
+#This option deletes specific types of files in the directory
+if [ "$DELETE_TYPE" -eq 1 ]; then
+  echo "All $FILE_TYPE files are being deleted!"
+  find . -type f -name "*.$FILE_TYPE" -exec echo {} \; -exec rm -f {} \;
+fi
+
+# This option deletes all the files in the directory if needed 
+if [ "$DELETE_ALL" -eq 1 ]; then
+  echo "ALL files are being deleted!"
+  find . -type f -exec echo {} \; -exec rm -f {} \;
+fi
+
+echo "Cleaned Up!"  #end of cleanup indicated via echo 

@@ -31,4 +31,20 @@ Here's the basic syntax:
 # 1. Delete Empty Files
 ./directory_cleanup -e ./test_cleanup_dir
 
+# 2. Delete Files Older than 30 Days
+./directory_cleanup -o 30 ./test_cleanup_dir
+
+# 3. Delete Files Larger than 10MB
+./directory_cleanup -s 10M ./test_cleanup_dir
+
+# 4. Delete All .txt Files
+./directory_cleanup -t txt ./test_cleanup_dir
+
+# 5. Delete All Files in the Directory
+./directory_cleanup -a ./test_cleanup_dir
+
+# 6. Display Help
+./directory_cleanup -h
+
+
 

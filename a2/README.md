@@ -27,3 +27,8 @@ Here's the basic syntax:
 
 ```bash
 ./directory_cleanup [OPTIONS] <DIRECTORY>
+
+# 1. Delete Empty Files
+./directory_cleanup -e ./test_cleanup_dir
+
+

@@ -31,6 +31,7 @@ Here's the basic syntax:
 # 1. Delete Empty Files
 ./directory_cleanup -e ./test_cleanup_dir
 
+#Output: 
 All files that are empty, are being deleted!
 ./empty_file.txt
 Cleaned Up!
@@ -38,6 +39,7 @@ Cleaned Up!
 # 2. Delete Files Older than 30 Days
 ./directory_cleanup -o 30 ./test_cleanup_dir
 
+#Output: 
 All files older than 30 days are being deleted!
 ./old_file.txt
 Cleaned Up!
@@ -46,6 +48,7 @@ Cleaned Up!
 # 3. Delete Files Larger than 10MB
 ./directory_cleanup -s 10M ./test_cleanup_dir
 
+#Output: 
 All 10M sized files are being deleted!
 ./large_file.txt
 Cleaned Up!
@@ -54,6 +57,7 @@ Cleaned Up!
 # 4. Delete All .txt Files
 ./directory_cleanup -t txt ./test_cleanup_dir
 
+#Output: 
 All txt files are being deleted!
 ./file1.txt
 ./sample_text_file.txt
@@ -63,6 +67,7 @@ Cleaned Up!
 # 5. Delete All Files in the Directory
 ./directory_cleanup -a ./test_cleanup_dir
 
+#Output: 
 ALL files are being deleted!
 ./empty_file.txt
 ./file1.txt
@@ -77,6 +82,7 @@ Cleaned Up!
 # 6. Display Help
 ./directory_cleanup -h
 
+#Output: 
 Usage: ./directory_cleanup [OPTIONS] <DIRECTORY>
 USAGE OPTIONS: These are the things you can do!
   -e             Condition to delete all empty files (e for empty)

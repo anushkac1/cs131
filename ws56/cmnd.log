@@ -8,7 +8,6 @@
   953  head -10 no-separators.csv >> ws56.txt
   956  sed 's/\.[0-9][0-9]*//g' no-separators.csv > no-fractions.csv
   958  head -10 no-fractions.csv >> ws56.txt
-  979  awk -F, 'NR > 1 && $17 >= 10.0 { count[$14]++ } END { for (tip in count) print tip, count[tip] }' 2019-1-h1.csv >> ws56.txt
-  981  echo "2b Output" >> ws56.txt
-  982  awk -F, 'NR > 1 { tip[$14]++ } END { for (t in tip) print t, tip[t] }' 2019-1-h1.csv | sort -k2,2nr | head -20 >> ws56.txt
+  979  awk -F, 'NR > 1 && $17 >= 10.0 { freq[$14]++ } END { for (tip in freq) print tip, freq[tip] }' 2019-1-h1.csv >> ws56.txt
+  982  awk -F, 'NR > 1 { tip[$14]++ } END { for (i in tip) print i, tip[i] }' 2019-1-h1.csv | sort -k2,2nr | head -20 >> ws56.txt
   989  history > cmnd.log

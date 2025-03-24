@@ -1,0 +1,14 @@
+  922  cd cs131
+  925  mkdir ws56
+  927  cd ws56
+  929  gdown 1fc3saVu2GtG3Rft3zI-VOOsZhaqcSyn3 -O 2019-1-h1.csv
+  944  sed -n '/^2\.0,/p' 2019-1-h1.csv > vendor2.csv
+  947  wc vendor2.csv > ws56.txt
+  950  sed 's/[:"-]//g' 2019-1-h1.csv > no-separators.csv
+  953  head -10 no-separators.csv >> ws56.txt
+  956  sed 's/\.[0-9][0-9]*//g' no-separators.csv > no-fractions.csv
+  958  head -10 no-fractions.csv >> ws56.txt
+  979  awk -F, 'NR > 1 && $17 >= 10.0 { count[$14]++ } END { for (tip in count) print tip, count[tip] }' 2019-1-h1.csv >> ws56.txt
+  981  echo "2b Output" >> ws56.txt
+  982  awk -F, 'NR > 1 { tip[$14]++ } END { for (t in tip) print t, tip[t] }' 2019-1-h1.csv | sort -k2,2nr | head -20 >> ws56.txt
+  989  history > cmnd.log

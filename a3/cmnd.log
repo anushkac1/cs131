@@ -1,0 +1,12 @@
+ 1053  cd cs131
+ 1054  mkdir a3
+ 1055  cd a3
+ 1062  nano grades.csv
+ 1063  cat grades.csv
+ 1067  nano grader.awk
+ 1086  awk -f grader.awk grades.csv
+ 1181  awk -f grader.awk grades.csv > a3.txt
+ 1183  cat a3.txt
+ 1199  history > cmnd.log
+ 1201  nano cmnd.log
+ 1202  rm grades.csv

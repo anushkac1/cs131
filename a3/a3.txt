@@ -1,0 +1,36 @@
+************Student Information************ 
+Student Name:  David
+Total Score:  195
+Average Score:  65
+Status:  failing
+ 
+
+Student Name:  Eve
+Total Score:  265
+Average Score:  88.3333
+Status:  passing
+ 
+
+Student Name:  Bob
+Total Score:  246
+Average Score:  82
+Status:  passing
+ 
+
+Student Name:  Charlie
+Total Score:  270
+Average Score:  90
+Status:  passing
+ 
+
+Student Name:  Alice
+Total Score:  253
+Average Score:  84.3333
+Status:  passing
+ 
+
+ 
+ 
+************Highest and Lowest Scoring Students Via Total Score************ 
+The highest scoring student is Charlie with a sum grade score of 270 .
+The lowest scoring student is David with a sum grade score of 195 .
